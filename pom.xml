@@ -25,12 +25,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-maven-plugin -->
-		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-maven-plugin</artifactId>
-			<version>10.3.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -54,6 +48,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-maven-plugin -->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>10.3.0</version>
+				<configuration>
+					<configFiles>flyway.conf</configFiles>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

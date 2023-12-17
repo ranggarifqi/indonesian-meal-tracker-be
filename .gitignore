@@ -4,7 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-src/main/resources/db/migration/flyway.conf
+flyway.conf
 
 ### STS ###
 .apt_generated
