@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 
 flyway.conf
+**/.DS_Store
 
 ### STS ###
 .apt_generated
