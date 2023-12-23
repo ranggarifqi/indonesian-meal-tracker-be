@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity
+@Table(name = "`Recipes`")
 public class Recipe extends TimestampAudit{
 
   @Id
