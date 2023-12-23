@@ -17,7 +17,7 @@ public class Ingredient extends TimestampAudit{
   @Column(name = "`id`", nullable = false)
   private UUID id;
 
-  @Column(name = "`recipeId`", nullable = false)
+  @Column(name = "`recipeId`", nullable = false, insertable = false, updatable = false)
   private UUID recipeId;
 
   @ManyToOne(fetch = FetchType.LAZY)
