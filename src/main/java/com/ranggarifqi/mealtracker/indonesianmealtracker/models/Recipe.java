@@ -4,6 +4,7 @@ import com.ranggarifqi.mealtracker.indonesianmealtracker.commons.json.JpaConvert
 import jakarta.persistence.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -25,6 +26,12 @@ public class Recipe extends TimestampAudit{
   @Column(name = "`steps`")
   @Convert(converter = JpaConverterStringArray.class)
   private String[] steps;
+
+  @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
+  private List<Ingredient> ingredients;
+
+  @OneToOne(fetch = FetchType.EAGER, mappedBy = "recipe")
+  private RecipeNutrition recipeNutrition;
 
   public Recipe(String name, String slug, String[] steps) {
     super();
@@ -59,6 +66,14 @@ public class Recipe extends TimestampAudit{
 
   public String[] getSteps() {
     return steps;
+  }
+
+  public List<Ingredient> getIngredients() {
+    return ingredients;
+  }
+
+  public RecipeNutrition getRecipeNutrition() {
+    return recipeNutrition;
   }
 
   public void setSteps(String[] steps) {

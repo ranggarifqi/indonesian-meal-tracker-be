@@ -15,6 +15,10 @@ public class RecipeNutrition extends TimestampAudit {
   @Column(name = "`recipeId`", nullable = false)
   private UUID recipeId;
 
+  @OneToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "`recipeId`")
+  private Recipe recipe;
+
   @Column(name = "`calories`", nullable = true)
   private double calories;
 

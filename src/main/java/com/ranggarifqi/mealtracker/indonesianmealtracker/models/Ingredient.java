@@ -20,6 +20,10 @@ public class Ingredient extends TimestampAudit{
   @Column(name = "`recipeId`", nullable = false)
   private UUID recipeId;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "`recipeId`")
+  private Recipe recipe;
+
   @Column(name = "`name`", nullable = false)
   private String name;
 
@@ -112,6 +116,10 @@ public class Ingredient extends TimestampAudit{
 
   public void setMetadata(IngredientMetadata metadata) {
     this.metadata = metadata;
+  }
+
+  public Recipe getRecipe() {
+    return recipe;
   }
 
   @Override
