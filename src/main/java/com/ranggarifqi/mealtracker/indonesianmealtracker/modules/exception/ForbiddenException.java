@@ -1,4 +1,4 @@
-package com.ranggarifqi.mealtracker.indonesianmealtracker.commons.exception;
+package com.ranggarifqi.mealtracker.indonesianmealtracker.modules.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,4 +1,4 @@
-package com.ranggarifqi.mealtracker.indonesianmealtracker.commons.json;
+package com.ranggarifqi.mealtracker.indonesianmealtracker.modules.json;
 
 import jakarta.persistence.Converter;
 

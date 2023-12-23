@@ -1,6 +1,6 @@
 package com.ranggarifqi.mealtracker.indonesianmealtracker.models;
 
-import com.ranggarifqi.mealtracker.indonesianmealtracker.commons.json.JpaConverterStringArray;
+import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.json.JpaConverterStringArray;
 import jakarta.persistence.*;
 
 import java.util.Arrays;
