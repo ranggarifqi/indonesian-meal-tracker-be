@@ -7,7 +7,6 @@ import jakarta.persistence.Converter;
 
 import java.io.IOException;
 
-@Converter(autoApply = true)
 public class JpaConverter<T> implements AttributeConverter<T, String> {
 
   private final static ObjectMapper objectMapper = new ObjectMapper();
