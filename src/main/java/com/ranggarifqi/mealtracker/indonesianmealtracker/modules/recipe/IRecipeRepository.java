@@ -1,4 +1,4 @@
-package com.ranggarifqi.mealtracker.indonesianmealtracker.repositories;
+package com.ranggarifqi.mealtracker.indonesianmealtracker.modules.recipe;
 
 import com.ranggarifqi.mealtracker.indonesianmealtracker.models.Recipe;
 
