@@ -27,7 +27,7 @@ public class Recipe extends TimestampAudit{
   @Convert(converter = JpaConverterStringArray.class)
   private String[] steps;
 
-  @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY)
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe")
   private List<Ingredient> ingredients;
 
   @OneToOne(fetch = FetchType.EAGER, mappedBy = "recipe")
@@ -72,8 +72,16 @@ public class Recipe extends TimestampAudit{
     return ingredients;
   }
 
+  public void setIngredients(List<Ingredient> ingredients) {
+    this.ingredients = ingredients;
+  }
+
   public RecipeNutrition getRecipeNutrition() {
     return recipeNutrition;
+  }
+
+  public void setRecipeNutrition(RecipeNutrition recipeNutrition) {
+    this.recipeNutrition = recipeNutrition;
   }
 
   public void setSteps(String[] steps) {

@@ -44,8 +44,7 @@ public class Ingredient extends TimestampAudit{
   @Convert(converter = IngredientMetadataConverter.class)
   private IngredientMetadata metadata;
 
-  public Ingredient(UUID recipeId, String name, float servingQty, String servingUnit, double servingWeightInGram, Nutrition nutrition, IngredientMetadata metadata) {
-    this.recipeId = recipeId;
+  public Ingredient(String name, float servingQty, String servingUnit, double servingWeightInGram, Nutrition nutrition, IngredientMetadata metadata) {
     this.name = name;
     this.servingQty = servingQty;
     this.servingUnit = servingUnit;
@@ -64,10 +63,6 @@ public class Ingredient extends TimestampAudit{
 
   public UUID getRecipeId() {
     return recipeId;
-  }
-
-  public void setRecipeId(UUID recipeId) {
-    this.recipeId = recipeId;
   }
 
   public String getName() {

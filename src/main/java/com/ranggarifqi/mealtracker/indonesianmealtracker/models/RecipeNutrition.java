@@ -16,7 +16,6 @@ public class RecipeNutrition extends TimestampAudit {
   private UUID recipeId;
 
   @OneToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "`recipeId`")
   private Recipe recipe;
 
   @Column(name = "`calories`", nullable = true)
@@ -52,8 +51,7 @@ public class RecipeNutrition extends TimestampAudit {
   @Column(name = "`phosphorus`", nullable = true)
   private double phosphorus;
 
-  public RecipeNutrition(UUID recipeId, double calories, double totalFat, double saturatedFat, double cholesterol, double sodium, double totalCarbohydrate, double dietaryFiber, double sugars, double protein, double potassium, double phosphorus) {
-    this.recipeId = recipeId;
+  public RecipeNutrition(double calories, double totalFat, double saturatedFat, double cholesterol, double sodium, double totalCarbohydrate, double dietaryFiber, double sugars, double protein, double potassium, double phosphorus) {
     this.calories = calories;
     this.totalFat = totalFat;
     this.saturatedFat = saturatedFat;
@@ -79,8 +77,8 @@ public class RecipeNutrition extends TimestampAudit {
     return recipeId;
   }
 
-  public void setRecipeId(UUID recipeId) {
-    this.recipeId = recipeId;
+  public Recipe getRecipe() {
+    return recipe;
   }
 
   public double getCalories() {
