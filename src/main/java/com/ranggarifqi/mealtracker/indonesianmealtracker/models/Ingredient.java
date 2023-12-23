@@ -17,8 +17,12 @@ public class Ingredient extends TimestampAudit{
   @Column(name = "`id`", nullable = false)
   private UUID id;
 
-  @Column(name = "`recipeId`", nullable = false)
+  @Column(name = "`recipeId`", nullable = false, insertable = false, updatable = false)
   private UUID recipeId;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "`recipeId`")
+  private Recipe recipe;
 
   @Column(name = "`name`", nullable = false)
   private String name;
@@ -40,8 +44,7 @@ public class Ingredient extends TimestampAudit{
   @Convert(converter = IngredientMetadataConverter.class)
   private IngredientMetadata metadata;
 
-  public Ingredient(UUID recipeId, String name, float servingQty, String servingUnit, double servingWeightInGram, Nutrition nutrition, IngredientMetadata metadata) {
-    this.recipeId = recipeId;
+  public Ingredient(String name, float servingQty, String servingUnit, double servingWeightInGram, Nutrition nutrition, IngredientMetadata metadata) {
     this.name = name;
     this.servingQty = servingQty;
     this.servingUnit = servingUnit;
@@ -60,10 +63,6 @@ public class Ingredient extends TimestampAudit{
 
   public UUID getRecipeId() {
     return recipeId;
-  }
-
-  public void setRecipeId(UUID recipeId) {
-    this.recipeId = recipeId;
   }
 
   public String getName() {
@@ -112,6 +111,10 @@ public class Ingredient extends TimestampAudit{
 
   public void setMetadata(IngredientMetadata metadata) {
     this.metadata = metadata;
+  }
+
+  public Recipe getRecipe() {
+    return recipe;
   }
 
   @Override
