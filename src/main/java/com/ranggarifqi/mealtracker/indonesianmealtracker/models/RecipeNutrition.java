@@ -3,6 +3,7 @@ package com.ranggarifqi.mealtracker.indonesianmealtracker.models;
 import com.ranggarifqi.mealtracker.indonesianmealtracker.models.records.Nutrition;
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -201,5 +202,18 @@ public class RecipeNutrition extends TimestampAudit {
             ", potassium=" + potassium +
             ", phosphorus=" + phosphorus +
             '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    RecipeNutrition that = (RecipeNutrition) o;
+    return Double.compare(that.calories, calories) == 0 && Double.compare(that.totalFat, totalFat) == 0 && Double.compare(that.saturatedFat, saturatedFat) == 0 && Double.compare(that.cholesterol, cholesterol) == 0 && Double.compare(that.sodium, sodium) == 0 && Double.compare(that.totalCarbohydrate, totalCarbohydrate) == 0 && Double.compare(that.dietaryFiber, dietaryFiber) == 0 && Double.compare(that.sugars, sugars) == 0 && Double.compare(that.protein, protein) == 0 && Double.compare(that.potassium, potassium) == 0 && Double.compare(that.phosphorus, phosphorus) == 0 && Objects.equals(id, that.id) && Objects.equals(recipeId, that.recipeId) && Objects.equals(recipe, that.recipe);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, recipeId, recipe, calories, totalFat, saturatedFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, sugars, protein, potassium, phosphorus);
   }
 }
