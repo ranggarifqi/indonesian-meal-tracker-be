@@ -7,9 +7,11 @@ import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class RecipeRepository implements IRecipeRepository{
 
   Logger logger = LoggerFactory.getLogger(RecipeRepository.class);
