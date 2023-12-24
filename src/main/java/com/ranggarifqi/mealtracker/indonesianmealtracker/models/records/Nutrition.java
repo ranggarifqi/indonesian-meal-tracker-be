@@ -12,4 +12,8 @@ public record Nutrition(
   double protein,
   double potassium,
   double phosphorus
-) {}
+) {
+  public Nutrition() {
+    this(0, 0, 0 ,0, 0, 0, 0 ,0 ,0, 0, 0);
+  }
+}
