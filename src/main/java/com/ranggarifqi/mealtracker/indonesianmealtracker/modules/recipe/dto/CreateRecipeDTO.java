@@ -3,6 +3,7 @@ package com.ranggarifqi.mealtracker.indonesianmealtracker.modules.recipe.dto;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class CreateRecipeDTO {
   @NotBlank(message = "name is mandatory")
@@ -11,6 +12,8 @@ public class CreateRecipeDTO {
   private String slug;
 
   private String[] steps;
+
+  private List<CreateIngredientDTO> ingredients;
 
   public CreateRecipeDTO(String name, String[] steps, String slug) {
     this.name = name;
@@ -46,12 +49,21 @@ public class CreateRecipeDTO {
     this.steps = steps;
   }
 
+  public List<CreateIngredientDTO> getIngredients() {
+    return ingredients;
+  }
+
+  public void setIngredients(List<CreateIngredientDTO> ingredients) {
+    this.ingredients = ingredients;
+  }
+
   @Override
   public String toString() {
     return "CreateRecipeDTO{" +
             "name='" + name + '\'' +
             ", slug='" + slug + '\'' +
             ", steps=" + Arrays.toString(steps) +
+            ", ingredients=" + ingredients +
             '}';
   }
 }
