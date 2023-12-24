@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS "Recipes" (
 
 CREATE TABLE IF NOT EXISTS "RecipeNutritions" (
     "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    "recipeId" UUID NOT NULL REFERENCES Recipes(id) ON DELETE CASCADE,
+    "recipeId" UUID NOT NULL REFERENCES "Recipes"(id) ON DELETE CASCADE,
     "calories" DECIMAL(10,2) DEFAULT 0,
     "totalFat" DECIMAL(10,2) DEFAULT 0,
     "saturatedFat" DECIMAL(10,2) DEFAULT 0,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS "RecipeNutritions" (
 
 CREATE TABLE IF NOT EXISTS "Ingredients" (
     "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    "recipeId" UUID NOT NULL REFERENCES Recipes(id) ON DELETE CASCADE,
+    "recipeId" UUID NOT NULL REFERENCES "Recipes"(id) ON DELETE CASCADE,
     "name" VARCHAR NOT NULL,
     "servingQty" NUMERIC NOT NULL,
     "servingUnit" VARCHAR NOT NULL,
