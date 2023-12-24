@@ -1,12 +1,10 @@
 package com.ranggarifqi.mealtracker.indonesianmealtracker.models;
 
 import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.json.JpaConverterStringArray;
+import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.string.Slugifier;
 import jakarta.persistence.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "`Recipes`")
@@ -33,11 +31,23 @@ public class Recipe extends TimestampAudit{
   @OneToOne(fetch = FetchType.EAGER, mappedBy = "recipe")
   private RecipeNutrition recipeNutrition;
 
-  public Recipe(String name, String slug, String[] steps) {
+  public Recipe(String name, String[] steps, String slug) {
     super();
     this.name = name;
-    this.slug = slug;
     this.steps = steps;
+
+    if (slug == null) {
+      this.slug = Slugifier.toSlug(name);
+      return;
+    }
+    this.slug = slug;
+  }
+
+  public Recipe(String name, String[] steps) {
+    super();
+    this.name = name;
+    this.steps = steps;
+    this.slug = Slugifier.toSlug(name);
   }
 
   public UUID getId() {
