@@ -2,6 +2,7 @@ package com.ranggarifqi.mealtracker.indonesianmealtracker.modules.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.exception.InternalServerException;
 import jakarta.persistence.AttributeConverter;
 
 import java.io.IOException;
@@ -21,8 +22,7 @@ public class JpaConverter<T> implements AttributeConverter<T, String> {
     try {
       return objectMapper.writeValueAsString(meta);
     } catch (JsonProcessingException ex) {
-      return null;
-      // or throw an error
+      throw new InternalServerException(ex.toString());
     }
   }
 
@@ -31,8 +31,7 @@ public class JpaConverter<T> implements AttributeConverter<T, String> {
     try {
       return objectMapper.readValue(dbData, type);
     } catch (IOException ex) {
-//       logger.error("Unexpected IOEx decoding json from database: " + dbData);
-      return null;
+      throw new InternalServerException(ex.toString());
     }
   }
 }
