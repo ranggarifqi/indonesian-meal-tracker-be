@@ -7,9 +7,11 @@ import com.ranggarifqi.mealtracker.indonesianmealtracker.models.records.Nutritio
 import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.recipe.dto.CreateIngredientDTO;
 import com.ranggarifqi.mealtracker.indonesianmealtracker.modules.recipe.dto.CreateRecipeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RecipeService implements IRecipeService{
 
   private final IRecipeRepository recipeRepository;
