@@ -12,9 +12,13 @@ public class CreateRecipeDTO {
 
   private String[] steps;
 
-  public CreateRecipeDTO(String name, String slug, String[] steps) {
+  public CreateRecipeDTO(String name, String[] steps, String slug) {
     this.name = name;
     this.slug = slug;
+    this.steps = steps;
+  }
+  public CreateRecipeDTO(String name, String[] steps) {
+    this.name = name;
     this.steps = steps;
   }
 

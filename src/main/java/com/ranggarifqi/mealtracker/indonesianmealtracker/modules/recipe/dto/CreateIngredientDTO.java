@@ -23,6 +23,8 @@ public class CreateIngredientDTO {
 
   private IngredientMetadata metadata;
 
+  public CreateIngredientDTO() {}
+
   public CreateIngredientDTO(String name, float servingQty, String servingUnit, double servingWeightInGram, Nutrition nutrition, IngredientMetadata metadata) {
     this.name = name;
     this.servingQty = servingQty;
