@@ -1,5 +1,6 @@
 package com.ranggarifqi.mealtracker.indonesianmealtracker.models;
 
+import com.ranggarifqi.mealtracker.indonesianmealtracker.models.records.Nutrition;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -63,6 +64,20 @@ public class RecipeNutrition extends TimestampAudit {
     this.protein = protein;
     this.potassium = potassium;
     this.phosphorus = phosphorus;
+  }
+
+  public RecipeNutrition(Nutrition nutrition) {
+    this.calories = nutrition.calories();
+    this.totalFat = nutrition.totalFat();
+    this.saturatedFat = nutrition.saturatedFat();
+    this.cholesterol = nutrition.cholesterol();
+    this.sodium = nutrition.sodium();
+    this.totalCarbohydrate = nutrition.totalCarbohydrate();
+    this.dietaryFiber = nutrition.dietaryFiber();
+    this.sugars = nutrition.sugars();
+    this.protein = nutrition.protein();
+    this.potassium = nutrition.potassium();
+    this.phosphorus = nutrition.phosphorus();
   }
 
   public UUID getId() {
