@@ -40,7 +40,7 @@ public class Recipe extends TimestampAudit{
       this.slug = Slugifier.toSlug(name);
       return;
     }
-    this.slug = slug;
+    this.slug = Slugifier.toSlug(slug);
   }
 
   public Recipe(String name, String[] steps) {
