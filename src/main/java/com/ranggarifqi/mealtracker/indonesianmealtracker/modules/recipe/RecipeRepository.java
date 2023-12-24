@@ -27,10 +27,10 @@ public class RecipeRepository implements IRecipeRepository{
   public List<Recipe> findByName(String searchQuery) {
     this.logger.info("findByName " + searchQuery);
 
-    String sql = "FROM \"Account\" where \"name\" LIKE '%:searchQuery%'";
+    String sql = "FROM Recipe where \"name\" LIKE :searchQuery";
 
     TypedQuery<Recipe> query = this.entityManager.createQuery(sql, Recipe.class);
-    query.setParameter("searchQuery", searchQuery);
+    query.setParameter("searchQuery", "%" + searchQuery + "%");
 
     return query.getResultList();
   }
