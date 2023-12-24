@@ -30,18 +30,18 @@ public class RecipeService implements IRecipeService{
   public Recipe create(CreateRecipeDTO recipeDTO, List<CreateIngredientDTO> ingredientDTOS) {
     List<Nutrition> ingredientNutritions = ingredientDTOS.stream().map(CreateIngredientDTO::getNutrition).toList();
 
-    Nutrition totalNutrition = ingredientNutritions.stream().reduce(new Nutrition(), (partialNutrition, ingredient) -> {
-      double calories = partialNutrition.calories() + ingredient.calories();
-      double totalFat = partialNutrition.totalFat() + ingredient.totalFat();
-      double saturatedFat = partialNutrition.saturatedFat() + ingredient.saturatedFat();
-      double cholesterol = partialNutrition.cholesterol() + ingredient.cholesterol();
-      double sodium = partialNutrition.sodium() + ingredient.sodium();
-      double totalCarbohydrate = partialNutrition.totalCarbohydrate() + ingredient.totalCarbohydrate();
-      double dietaryFiber = partialNutrition.dietaryFiber() + ingredient.dietaryFiber();
-      double sugars = partialNutrition.sugars() + ingredient.sugars();
-      double protein = partialNutrition.protein() + ingredient.protein();
-      double potassium = partialNutrition.potassium() + ingredient.potassium();
-      double phosphorus = partialNutrition.phosphorus() + ingredient.phosphorus();
+    Nutrition totalNutrition = ingredientNutritions.stream().reduce(new Nutrition(), (partialNutrition, ingredientNutrition) -> {
+      double calories = partialNutrition.calories() + ingredientNutrition.calories();
+      double totalFat = partialNutrition.totalFat() + ingredientNutrition.totalFat();
+      double saturatedFat = partialNutrition.saturatedFat() + ingredientNutrition.saturatedFat();
+      double cholesterol = partialNutrition.cholesterol() + ingredientNutrition.cholesterol();
+      double sodium = partialNutrition.sodium() + ingredientNutrition.sodium();
+      double totalCarbohydrate = partialNutrition.totalCarbohydrate() + ingredientNutrition.totalCarbohydrate();
+      double dietaryFiber = partialNutrition.dietaryFiber() + ingredientNutrition.dietaryFiber();
+      double sugars = partialNutrition.sugars() + ingredientNutrition.sugars();
+      double protein = partialNutrition.protein() + ingredientNutrition.protein();
+      double potassium = partialNutrition.potassium() + ingredientNutrition.potassium();
+      double phosphorus = partialNutrition.phosphorus() + ingredientNutrition.phosphorus();
 
       return new Nutrition(calories, totalFat, saturatedFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, sugars, protein, potassium, phosphorus);
     });
